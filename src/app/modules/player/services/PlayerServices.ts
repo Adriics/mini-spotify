@@ -22,6 +22,14 @@ export class PlayerService {
     console.log(`▶️ Reproduciendo: ${track.title} — ${track.artist}`);
   }
 
+  // REPORODUCE UNA CANCION ESPECIFICA
+  playTrackId(id: string): void {
+    const index = this.queue.findIndex((t) => t.id === id);
+    if (index === -1) throw new Error(`No existe el track con id ${id}`);
+    this.currentIndex = index;
+    this.play();
+  }
+
   /** Pausa la reproducción */
   pause() {
     // Lógica de pausa del Audio API
@@ -44,5 +52,9 @@ export class PlayerService {
       this.currentIndex--;
       this.play();
     }
+  }
+
+  getQueue(): Track[] {
+    return this.queue;
   }
 }
