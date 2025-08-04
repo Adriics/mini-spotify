@@ -21,12 +21,13 @@ export function TrackList() {
 
       <div className="hover:bg.gray-100">
         {queue.map((t) => (
-          <div
-            key={t.id}
-            className="border p-2 rounded bg-white shadow hover:bg-red-400"
-          >
-            {t.title}, {t.artist}
-            <button onClick={() => service.playTrackId(t.id)}>
+          <div className="bg-white p-4 rounded shadow hover:bg-gray-50 transition">
+            <div className="font-bold">{t.title}</div>
+            <div className="text-sm text-gray-600">{t.artist}</div>
+            <button
+              className="text-indigo-600 hover:underline text-sm mt-1"
+              onClick={() => service.playTrackId(t.id)}
+            >
               Reproducir
             </button>
           </div>
