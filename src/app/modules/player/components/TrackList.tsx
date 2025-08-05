@@ -21,7 +21,10 @@ export function TrackList() {
 
       <div className="hover:bg.gray-100">
         {queue.map((t) => (
-          <div className="bg-white p-4 rounded shadow hover:bg-gray-50 transition">
+          <div
+            key={t.id}
+            className="bg-white p-4 rounded shadow hover:bg-gray-50 transition"
+          >
             <div className="font-bold">{t.title}</div>
             <div className="text-sm text-gray-600">{t.artist}</div>
             <button
