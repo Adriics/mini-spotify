@@ -8,10 +8,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        "spotify-green": "#1DB954",
+        "spotimy-green-light": "#4ade80",
+        "spotimy-green": "#22c55e",
+        "spotimy-white": "#FFF",
+        "spotimy-gray-light": "#f3f4f6",
       },
       fontFamily: {
         spotimy: ["Circular", "Helvetica", "Arial", "sans-serif"],
+      },
+      backgroundColor: {
+        "spotimy-black": "#000",
+        "spotimy-gray-medium": "#d1d5db",
+        "spotimy-green-light": "#34d399",
+        "spotimy-green-medium": "#16a34a",
       },
     },
   },
