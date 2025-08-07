@@ -1,4 +1,3 @@
-import { MainContent } from "../MainContent/MainContent";
 import { Menu } from "../Menu/Menu";
 import { Filters } from "./Filters";
 import { Options } from "./Options";
@@ -16,8 +15,6 @@ export function Sidebar() {
 
         <Filters />
       </aside>
-
-      <MainContent />
     </>
   );
 }

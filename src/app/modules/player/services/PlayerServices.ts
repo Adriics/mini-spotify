@@ -57,4 +57,9 @@ export class PlayerService {
   getQueue(): Track[] {
     return this.queue;
   }
+
+  /** Devuelve la canción actual */
+  getCurrentTrack(): Track | null {
+    return this.queue[this.currentIndex] ?? null;
+  }
 }
