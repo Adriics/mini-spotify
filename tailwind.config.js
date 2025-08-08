@@ -21,8 +21,9 @@ export default {
       },
       backgroundColor: {
         "spotimy-black": "#000",
-        "spotimy-gray-medium": "#44403c ",
-        "spotimy-gray-dark": "#292524",
+        "spotimy-gray-light": "#d1d5db",
+        "spotimy-gray-medium": "#44403c",
+        "spotimy-gray-dark": "#262626",
         "spotimy-green-light": "#34d399",
         "spotimy-green-medium": "#16a34a",
       },

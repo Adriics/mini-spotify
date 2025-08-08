@@ -1,37 +1,23 @@
-import type { Playlist } from "../domain/Playlist";
 import { usePlayer } from "../hooks/usePlayer";
 
-// Una playlist de prueba
-const demoPlaylist: Playlist = {
-  id: "demo",
-  name: "Focus Beats",
-  mood: "focus",
-  tracks: [
-    { id: "t1", title: "Beat One", artist: "DJ Focus", duration: 180 },
-    { id: "t2", title: "Beat Two", artist: "DJ Focus", duration: 200 },
-  ],
-};
-
 export function TrackList() {
-  const { queue, service, loadPlaylist } = usePlayer();
+  const { queue, service } = usePlayer();
 
   return (
     <div className="space-x-2">
-      <button onClick={() => loadPlaylist(demoPlaylist)}>Cargar demo</button>
-
       <div className="hover:bg.gray-100">
         {queue.map((t) => (
           <div
             key={t.id}
-            className="bg-white p-4 rounded shadow hover:bg-gray-50 transition"
+            className="bg-spotimy-gray-dark p-4 rounded shadow hover:bg-spotimy-gray-medium transition"
           >
             <div className="font-bold">{t.title}</div>
-            <div className="text-sm text-gray-600">{t.artist}</div>
+            <div className="text-sm text-gray-400">{t.artist}</div>
             <button
-              className="text-indigo-600 hover:underline text-sm mt-1"
+              className="text-indigo-600 hover:underline text-lg mt-1"
               onClick={() => service.playTrackId(t.id)}
             >
-              Reproducir
+              ▶️
             </button>
           </div>
         ))}
