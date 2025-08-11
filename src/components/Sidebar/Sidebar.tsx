@@ -1,6 +1,6 @@
-import { Menu } from "../Menu/Menu";
-import { Filters } from "./Filters";
-import { Options } from "./Options";
+import { Menu } from "../Menu/Menu"
+import { Filters } from "./Filters"
+import { Options } from "./Options"
 
 export function Sidebar() {
   return (
@@ -16,5 +16,5 @@ export function Sidebar() {
         <Filters />
       </aside>
     </>
-  );
+  )
 }
