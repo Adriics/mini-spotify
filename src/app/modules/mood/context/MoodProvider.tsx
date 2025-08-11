@@ -19,6 +19,7 @@ export const MoodProvider: React.FC<React.PropsWithChildren> = ({
 
   useEffect(() => {
     localStorage.setItem("moodConfig", JSON.stringify(moodConfig));
+    console.log("MoodConfig updated:", moodConfig);
   }, [moodConfig]);
 
   const updateMood = (key: keyof MoodConfig, value: unknown) => {
