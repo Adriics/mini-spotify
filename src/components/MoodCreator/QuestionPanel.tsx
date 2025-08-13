@@ -1,9 +1,9 @@
-import { useState } from "react";
-import { QuestionCard } from "../../app/modules/mood/components/QuestionCard";
-import { useMood } from "../../app/modules/mood/hooks/useMood";
+import { useState } from "react"
+import { QuestionCard } from "../../app/modules/mood/components/QuestionCard"
+import { useMood } from "../../app/modules/mood/hooks/useMood"
 
 export function QuestionPanel() {
-  const { updateMood } = useMood();
+  const { updateMood } = useMood()
 
   const questions = [
     {
@@ -38,19 +38,19 @@ export function QuestionPanel() {
       text: "Prefieres algo nuevo o conocido?",
       options: ["Nuevo", "Conocido", "Ambos"],
     },
-  ];
+  ]
 
-  const [current, setCurrent] = useState(0);
+  const [current, setCurrent] = useState(0)
 
   const handleAnswer = (answer: string) => {
-    setCurrent((prev) => prev + 1);
-    if (current === 0) updateMood("moodEmotion", answer);
-    if (current === 1) updateMood("moodScene", answer);
-    if (current === 2) updateMood("moodTime", answer);
-    if (current === 3) updateMood("moodSound", answer);
-    if (current === 4) updateMood("moodEnergy", answer);
-    console.log(`Respuesta a la pregunta ${questions[current].id}: ${answer}`);
-  };
+    setCurrent((prev) => prev + 1)
+    if (current === 0) updateMood("moodEmotion", answer)
+    if (current === 1) updateMood("moodScene", answer)
+    if (current === 2) updateMood("moodTime", answer)
+    if (current === 3) updateMood("moodSound", answer)
+    if (current === 4) updateMood("moodEnergy", answer)
+    console.log(`Respuesta a la pregunta ${questions[current].id}: ${answer}`)
+  }
 
   return (
     <div className="p-4">
@@ -66,5 +66,5 @@ export function QuestionPanel() {
         </p>
       )}
     </div>
-  );
+  )
 }

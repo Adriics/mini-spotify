@@ -32,33 +32,6 @@ export function Menu() {
       )
     : []
 
-  // Manejar teclas ↑ ↓ Enter
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "ArrowDown") {
-      setSelectedIndex((prev) =>
-        prev < (query ? results.length : history.length) - 1 ? prev + 1 : prev
-      )
-    }
-    if (e.key === "ArrowUp") {
-      setSelectedIndex((prev) => (prev > 0 ? prev - 1 : prev))
-    }
-    if (e.key === "Enter") {
-      const item = query
-        ? results[selectedIndex]
-        : history[selectedIndex] &&
-          queue.find((t) =>
-            t.title.toLowerCase().includes(history[selectedIndex].toLowerCase())
-          )
-
-      if (item) {
-        service.playTrackId(item.id)
-        addToHistory(query || history[selectedIndex])
-        setQuery("")
-        setIsFocused(false)
-      }
-    }
-  }
-
   return (
     <nav className="space-y-3 relative">
       {/* Input de búsqueda */}
@@ -80,14 +53,16 @@ export function Menu() {
           }}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setTimeout(() => setIsFocused(false), 150)}
-          onKeyDown={handleKeyDown}
           className="bg-transparent outline-none text-spotimy-white placeholder:text-spotimy-gray-light w-full"
         />
       </div>
-
       {/* Lista de resultados o historial */}
+      // Mostrar resultados si hay consulta, o historial si no
       {isFocused && (results.length > 0 || history.length > 0) && (
         <div className="absolute top-14 left-0 w-full bg-spotimy-gray-dark rounded shadow-lg z-50">
+          // Si hay query, mapea results, (cada item es un track) // Si no hay
+          query, mapea history (cada item es un string) // i es para el índice
+          del elemento seleccionado
           {(query ? results : history).map((item, i) => {
             const label =
               query && typeof item !== "string"
@@ -100,12 +75,15 @@ export function Menu() {
               <button
                 key={typeof item === "string" ? item : item.id}
                 onMouseDown={() => {
+                  // si se hace click en un elemento, se reproduce
+                  // el track correspondiente o se agrega al historial
                   if (query) {
                     if (typeof item !== "string") {
                       service.playTrackId(item.id)
                       addToHistory(query)
                     }
                   } else {
+                    // Si no hay query, se busca en el historial
                     const found = queue.find(
                       (t) =>
                         typeof item === "string" &&
@@ -113,6 +91,7 @@ export function Menu() {
                     )
                     if (found) service.playTrackId(found.id)
                   }
+                  // Resetea el input y el estado de enfoque
                   setQuery("")
                   setIsFocused(false)
                 }}
