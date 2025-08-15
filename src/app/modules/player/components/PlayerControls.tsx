@@ -66,9 +66,8 @@ export function PlayerControls() {
       </Button>
       <audio ref={audioRef} src={song1}></audio>
 
-      <Button onClick={() => pauseTrack()}>Pausa</Button>
-
       <Button onClick={() => previousTrack()}>⬅️</Button>
+      <Button onClick={() => pauseTrack()}>⏸️</Button>
       <Button onClick={() => nextTrack()}>➡️</Button>
     </>
   )
