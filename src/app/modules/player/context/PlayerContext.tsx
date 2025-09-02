@@ -75,7 +75,7 @@ export const PlayerProvider: React.FC<React.PropsWithChildren> = ({
         queue,
         currentTrack,
         loadPlaylist,
-        service: playerActions, // ← Pasar todo el objeto
+        service: playerActions,
       }}
     >
       {children}

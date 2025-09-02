@@ -218,7 +218,7 @@ export function Menu() {
                         onClick={(e) => {
                           e.stopPropagation()
                           const newHistory = history.filter(
-                            (h, idx) => idx !== i
+                            (_, idx) => idx !== i
                           )
                           setHistory(newHistory)
                           localStorage.setItem(
