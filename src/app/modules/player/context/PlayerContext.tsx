@@ -76,6 +76,8 @@ export const PlayerProvider: React.FC<React.PropsWithChildren> = ({
         currentTrack,
         loadPlaylist,
         service: playerActions,
+        next: playerActions.next, // ← Agregar aquí
+        previous: playerActions.previous, // ← Agregar aquí
       }}
     >
       {children}
