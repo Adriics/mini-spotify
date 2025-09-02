@@ -1,5 +1,4 @@
 // src/components/SurpriseMeButton.tsx
-import React from "react"
 import { usePlayer } from "../app/modules/player/hooks/usePlayer"
 
 export function SurpriseMeButton() {
