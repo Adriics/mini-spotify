@@ -15,9 +15,7 @@ export interface PlayerContextType {
   queue: Track[]
   currentTrack: Track | null
   loadPlaylist: (playlist: Playlist) => void
-  previous: () => void
-  next: () => void
-  service: PlayerActions
+  service: PlayerActions // Ya contiene next, previous, play, pause, etc.
 }
 
 export const PlayerContext = createContext<PlayerContextType | undefined>(
